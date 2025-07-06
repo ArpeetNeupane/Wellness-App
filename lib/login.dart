@@ -16,6 +16,14 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _passwordVisibility = false;
   bool _rememberMe = false;
 
+  //avoiding memory leaks and optimizing app (when rebuilding)
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,10 +141,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderRadius: BorderRadius.circular(20)
                     ),
                     child: TextButton(
-                      onPressed: () {
+                      onPressed: () async {
+                        final navigator = Navigator.of(context);
+                        FocusScope.of(context).unfocus(); //dismissing keyboard first
+                        
+                        await Future.delayed(const Duration(milliseconds: 100)); //waiting for keyboard to fully dismiss
+                        
+                        if (!mounted) return;
                         if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
+                          navigator.push(
                             MaterialPageRoute(
                               builder: (context) => const DashboardScreen(),
                             ),
@@ -220,7 +233,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         );
                       },
                       child: const Text(
-                        'Create an account.',
+                        'Create an account',
                         style: TextStyle(
                           decoration: TextDecoration.underline,
                         ),

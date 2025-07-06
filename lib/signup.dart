@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
+import 'user_interests.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -15,6 +16,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final _passwordController = TextEditingController();
   bool _passwordVisibility = false;
   bool _rememberMe = false;
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -142,12 +151,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       borderRadius: BorderRadius.circular(20)
                     ),
                     child: TextButton(
-                      onPressed: () {
+                      onPressed: () async {
+                        final navigator = Navigator.of(context);
+                        FocusScope.of(context).unfocus(); //dismissing keyboard first
+                        
+                        await Future.delayed(const Duration(milliseconds: 100)); //waiting for keyboard to fully dismiss
+                        
+                        if (!mounted) return;
                         if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
+                          navigator.push(
                             MaterialPageRoute(
-                              builder: (context) => const LoginScreen(),
+                              builder: (context) => const UserInterestsScreen(),
                             ),
                           );
                         }
@@ -229,7 +243,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         );
                       },
                       child: const Text(
-                        'Login.',
+                        'Login',
                         style: TextStyle(
                           decoration: TextDecoration.underline,
                         ),
