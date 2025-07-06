@@ -37,6 +37,9 @@ dependencies:
   cached_network_image: ^3.4.1
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.2.0
+  flutter_tts: ^4.2.3
+  share_plus: ^11.0.0
+  lottie: ^3.3.1
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
@@ -60,6 +63,7 @@ flutter:
   assets:
     - assets/icon/icon.png
     - assets/images/profile.jpg
+    - assets/animations/scroll_up_hand.json
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -133,18 +134,26 @@ class ProfileScreen extends StatelessWidget {
             
             SizedBox(height: 15),
             
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.grey[900],
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: ListTile(
-                leading: Icon(Icons.logout, color: Colors.white),
-                title: Text(
-                  'Logout',
-                  style: TextStyle(color: Colors.white, fontSize: 19),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen())
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey[900],
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
+                child: ListTile(
+                  leading: Icon(Icons.logout, color: Colors.white),
+                  title: Text(
+                    'Logout',
+                    style: TextStyle(color: Colors.white, fontSize: 19),
+                  ),
+                  trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
+                ),
               ),
             ),
           ],

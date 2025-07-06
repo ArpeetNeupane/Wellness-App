@@ -154,7 +154,7 @@ class DashboardScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => QuotesDetailScreen(
-
+                          category: 'Feeling Blessed',
                         ),
                       ),
                     );
@@ -196,7 +196,7 @@ class DashboardScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => QuotesDetailScreen(
-
+                          category: 'Pride Month',
                         ),
                       ),
                     );
@@ -238,7 +238,7 @@ class DashboardScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => QuotesDetailScreen(
-
+                          category: 'Self-worth',
                         ),
                       ),
                     );
@@ -280,7 +280,7 @@ class DashboardScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => QuotesDetailScreen(
-                          
+                          category: 'Love',
                         ),
                       ),
                     );
