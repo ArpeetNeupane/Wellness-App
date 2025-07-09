@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'login.dart';
+import 'package:wellness/core/route_config/route_config.dart';
+import 'package:wellness/core/route_config/route_names.dart';
 void main() {
   runApp(const WellnessApp());
 }
@@ -60,7 +61,8 @@ class WellnessApp extends StatelessWidget {
         ),
         hoverColor: Colors.transparent,
       ),
-      home: const LoginScreen(),
+      onGenerateRoute: RouteConfig.generateRoute,
+      initialRoute: RoutesName.defaultScreen,
     );
   }
 }

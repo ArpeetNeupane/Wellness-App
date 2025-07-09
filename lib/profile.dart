@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login.dart';
+import 'core/route_config/route_names.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -136,9 +136,9 @@ class ProfileScreen extends StatelessWidget {
             
             GestureDetector(
               onTap: () {
-                Navigator.pushReplacement(
+                Navigator.pushReplacementNamed(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginScreen())
+                  AuthRouteName.loginScreen,
                 );
               },
               child: Container(

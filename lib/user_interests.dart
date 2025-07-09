@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dashboard.dart';
+import 'package:wellness/core/route_config/route_names.dart';
 
 class UserInterestsScreen extends StatefulWidget {
   const UserInterestsScreen({super.key});
@@ -82,11 +82,9 @@ class _UserInterestsScreenState extends State<UserInterestsScreen> {
                   ),
                   child: TextButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const DashboardScreen(),
-                        ),
+                      Navigator.pushNamed(
+                        context, RoutesName.dashboardScreen,
+                        arguments: 'Feeling Blessed'
                       );
                     },
                     child: Text(
