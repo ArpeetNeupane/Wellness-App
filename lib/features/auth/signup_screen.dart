@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wellness/core/route_config/route_names.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -29,26 +30,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView( //to prevent overflow when keyboard pops up during typing
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Form(
             key: _formKey,
             child: Column(
               children: [
-                const SizedBox(height: 80),
+                SizedBox(height: 80.h),
                 Center(
-                  child: const Text(
+                  child: Text(
                     'Start your wellness\njourney today!',
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 30.sp,
                       fontWeight: FontWeight.w600,
                       color: Colors.white
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
-                const SizedBox(height: 50),
+                SizedBox(height: 50.h),
                 SizedBox(
-                  width: 380,
+                  width: 380.w,
                   child: TextFormField(
                     controller: _nameController,
                     validator: (value) {
@@ -57,16 +58,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       }
                       return null;
                     },
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintText: 'Enter your full name.',
-                      prefixIcon: Icon(Icons.person),
-                      contentPadding: EdgeInsets.symmetric(vertical: 17)
+                      prefixIcon: Icon(Icons.person, size: 24.sp),
+                      contentPadding: EdgeInsets.symmetric(vertical: 17.h)
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 SizedBox(
-                  width: 380,
+                  width: 380.w,
                   child: TextFormField(
                     controller: _emailController,
                     validator: (value) {
@@ -78,16 +79,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       }
                       return null;
                     },
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintText: 'Enter your email.',
-                      prefixIcon: Icon(Icons.email),
-                      contentPadding: EdgeInsets.symmetric(vertical: 17)
+                      prefixIcon: Icon(Icons.email, size: 24.sp),
+                      contentPadding: EdgeInsets.symmetric(vertical: 17.h)
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 SizedBox(
-                  width: 380,
+                  width: 380.w,
                   child: TextFormField(
                     controller: _passwordController,
                     obscureText: !_passwordVisibility,
@@ -99,10 +100,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     },
                     decoration: InputDecoration(
                       hintText: 'Enter your password.',
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: Icon(Icons.lock, size: 24.sp),
                       suffixIcon: IconButton(
                         icon: Icon(
-                          _passwordVisibility ? Icons.visibility:Icons.visibility_off,
+                          _passwordVisibility ? Icons.visibility : Icons.visibility_off,
+                          size: 24.sp,
                           color: Colors.white,
                         ),
                         onPressed: () {
@@ -111,11 +113,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           });
                         },
                       ),
-                      contentPadding: EdgeInsets.symmetric(vertical: 17)
+                      contentPadding: EdgeInsets.symmetric(vertical: 17.h)
                     ),
                   ),
                 ),
-                const SizedBox(height: 5),
+                SizedBox(height: 5.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -136,18 +138,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             });
                           },
                         ),
-                        const Text('Remember me'),
+                        Text(
+                          'Remember me',
+                          style: TextStyle(fontSize: 14.sp),
+                        ),
                       ],
                     ),
                   ],
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: 30.h),
                 SizedBox(
-                  width: 380,
+                  width: 380.w,
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)
+                      borderRadius: BorderRadius.circular(20.r)
                     ),
                     child: TextButton(
                       onPressed: () async {
@@ -165,41 +170,44 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         'Sign up',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 17,
+                          fontSize: 17.sp,
                         ),
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 22),
+                SizedBox(height: 22.h),
                 Row(
                   children: [
-                    const Expanded(
+                    Expanded(
                       child: Divider(
                         color: Colors.grey,
                         thickness: 1,
-                        indent: 17, //spacing before line
-                        endIndent: 10, //spacing after line
+                        indent: 17.w, //spacing before line
+                        endIndent: 10.w, //spacing after line
                       ),
                     ),
-                    const Text('Or'),
-                    const Expanded(
+                    Text(
+                      'Or',
+                      style: TextStyle(fontSize: 14.sp),
+                    ),
+                    Expanded(
                       child: Divider(
                         color: Colors.grey,
                         thickness: 1,
-                        indent: 10,
-                        endIndent: 17,
+                        indent: 10.w,
+                        endIndent: 17.w,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 22),
+                SizedBox(height: 22.h),
                 SizedBox(
-                  width: 380,
+                  width: 380.w,
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)
+                      borderRadius: BorderRadius.circular(20.r)
                     ),
                     child: TextButton(
                       onPressed: () {
@@ -208,13 +216,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.g_translate, color: Colors.black),
-                          SizedBox(width: 5),
+                          Icon(Icons.g_translate, color: Colors.black, size: 24.sp),
+                          SizedBox(width: 5.w),
                           Text(
                             'Google',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 17,
+                              fontSize: 17.sp,
                             ),
                           ),
                         ],
@@ -222,12 +230,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: 40.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Already have an account?"),
-                    SizedBox(width: 5),
+                    Text(
+                      "Already have an account?",
+                      style: TextStyle(fontSize: 14.sp),
+                    ),
+                    SizedBox(width: 5.w),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushReplacementNamed(
@@ -235,10 +246,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           AuthRouteName.loginScreen,
                         );
                       },
-                      child: const Text(
+                      child: Text(
                         'Login',
                         style: TextStyle(
                           decoration: TextDecoration.underline,
+                          fontSize: 14.sp,
                         ),
                       ),
                     ),

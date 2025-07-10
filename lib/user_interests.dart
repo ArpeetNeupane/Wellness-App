@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wellness/core/route_config/route_names.dart';
 
 class UserInterestsScreen extends StatefulWidget {
@@ -19,8 +20,7 @@ class _UserInterestsScreenState extends State<UserInterestsScreen> {
     setState(() {
       if (selectedInterests.contains(interest)) {
         selectedInterests.remove(interest);
-      }
-      else {
+      } else {
         selectedInterests.add(interest);
       }
     });
@@ -31,27 +31,27 @@ class _UserInterestsScreenState extends State<UserInterestsScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: EdgeInsets.all(10.w),
           child: Column(
             children: [
-              const SizedBox(height: 60),
-              const Text(
+              SizedBox(height: 60.h),
+              Text(
                 'Select all topics that\nmotivates you.',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 35,
-                  fontWeight: FontWeight.w400
+                  fontSize: 35.sp,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
-              const SizedBox(height: 50),
+              SizedBox(height: 50.h),
               SizedBox(
                 child: GridView.count(
-                  crossAxisCount: 2, //2 columns per row
-                  mainAxisSpacing: 16, //vertical spacing between rows
-                  crossAxisSpacing: 16, //horizontal spacing between columns
-                  childAspectRatio: 3, //width to height ratio of each button
-                  shrinkWrap: true, //making the grid take only as much vertical space as needed by its children
-                  physics: const NeverScrollableScrollPhysics(), //disabling scroll inside column
+                  crossAxisCount: 2, // 2 columns per row
+                  mainAxisSpacing: 16.h, // vertical spacing between rows
+                  crossAxisSpacing: 16.w, // horizontal spacing between columns
+                  childAspectRatio: 3, // width to height ratio of each button
+                  shrinkWrap: true, // grid takes only needed vertical space
+                  physics: const NeverScrollableScrollPhysics(), // disable scroll inside column
                   children: allInterests.map((interest) {
                     final isSelected = selectedInterests.contains(interest);
                     return TextButton(
@@ -60,38 +60,38 @@ class _UserInterestsScreenState extends State<UserInterestsScreen> {
                         backgroundColor: isSelected ? Colors.white : Colors.grey[900],
                         foregroundColor: isSelected ? Colors.black : Colors.white70,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.r),
                         ),
-                        padding: const EdgeInsets.symmetric(vertical: 20), //padding inside buttons
+                        padding: EdgeInsets.symmetric(vertical: 20.h), // padding inside buttons
                       ),
                       child: Text(
                         interest,
-                        style: const TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20.sp),
                       ),
                     );
                   }).toList(),
                 ),
               ),
-              const SizedBox(height: 60),
+              SizedBox(height: 60.h),
               SizedBox(
-                width: 200,
+                width: 200.w,
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20)
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: TextButton(
                     onPressed: () {
                       Navigator.pushNamed(
                         context, RoutesName.dashboardScreen,
-                        arguments: 'Feeling Blessed'
+                        arguments: 'Feeling Blessed',
                       );
                     },
                     child: Text(
                       'Continue',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 17,
+                        fontSize: 17.sp,
                       ),
                     ),
                   ),

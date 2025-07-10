@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:lottie/lottie.dart';
@@ -18,8 +19,10 @@ class QuotesDetailScreen extends StatefulWidget {
 class _QuotesDetailScreenState extends State<QuotesDetailScreen> {
   int currentPage = 0;
   late PageController pageController;
-  Set<String> likedQuotes = {};
   final FlutterTts flutterTts = FlutterTts();
+
+  // This will hold the liked quotes text strings
+  final Set<String> likedQuotes = {};
 
   @override
   void initState() {
@@ -33,7 +36,7 @@ class _QuotesDetailScreenState extends State<QuotesDetailScreen> {
     super.dispose();
   }
 
-  Map<String, List<Map<String, String>>>  quotes = {
+  Map<String, List<Map<String, String>>> quotes = {
     'Feeling Blessed': [
       {
         'quote': 'Count your blessings, not your problems',
@@ -118,53 +121,51 @@ class _QuotesDetailScreenState extends State<QuotesDetailScreen> {
     final List<Map<String, String>> currentQuotes = quotes[widget.category] ?? [];
 
     return Scaffold(
-      // extendBodyBehindAppBar: false, //preventing the body from rendering behind the app bar
       appBar: AppBar(
-        // backgroundColor: const Color.fromARGB(255, 16, 2, 16),
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text(
           widget.category,
           style: TextStyle(
-            fontSize: 23
+            fontSize: 23.sp,
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: Icon(Icons.arrow_back_ios, size: 24.sp),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 16),
+            padding: EdgeInsets.only(right: 16.w),
             child: Center(
               child: Text(
                 '${currentPage + 1}/${quotes[widget.category]?.length ?? 0}',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
               ),
             ),
           )
         ],
       ),
       body: SafeArea(
-        child: PageView.builder( //allows us to scroll
+        child: PageView.builder(
           controller: pageController,
-          scrollDirection: Axis.vertical, //vertical
+          scrollDirection: Axis.vertical,
           onPageChanged: (index) {
             setState(() {
               currentPage = index;
             });
           },
-          itemCount: currentQuotes.length, //telling the pageview how many pages/quotes to render
+          itemCount: currentQuotes.length,
           itemBuilder: (context, index) {
-            final quote = currentQuotes[index]; //index is used to get the quote from the list
+            final quote = currentQuotes[index];
             final quoteText = quote['quote']!;
             final author = quote['author']!;
             final isLiked = likedQuotes.contains(quoteText);
-        
+
             return Padding(
-              padding: EdgeInsets.only(right: 20, left: 20, top: 10),
+              padding: EdgeInsets.only(right: 20.w, left: 20.w, top: 10.h),
               child: Column(
                 children: [
                   Align(
@@ -172,55 +173,54 @@ class _QuotesDetailScreenState extends State<QuotesDetailScreen> {
                     child: Container(
                       decoration: BoxDecoration(
                         border: Border.all(color: Color.fromRGBO(79, 77, 77, 0.737)),
-                        borderRadius: BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(30.r),
                       ),
                       child: IconButton(
                         onPressed: () async {
                           await flutterTts.speak('$quoteText by $author');
                         },
-                        icon: Icon(Icons.volume_up, size: 25),
+                        icon: Icon(Icons.volume_up, size: 25.sp),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 160),
-                  Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          '"${quote['quote']}"',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontStyle: FontStyle.italic,
+                  Expanded(
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            '"${quote['quote']}"',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 24.sp,
+                              fontStyle: FontStyle.italic,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 20),
-                        Text(
-                          '- ${quote['author']}',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.grey[700],
+                          SizedBox(height: 20.h),
+                          Text(
+                            '- ${quote['author']}',
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              color: Colors.grey[700],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 120),
-                  //scroll up gesture animation (using Lottie)
                   SizedBox(
-                    height: 100,
-                    width: 130,
+                    height: 100.h,
+                    width: 130.w,
                     child: Lottie.asset('assets/animations/scroll_up_hand.json'),
                   ),
-                  const Text(
+                  Text(
                     'Swipe up',
                     style: TextStyle(
                       color: Colors.grey,
-                      fontSize: 20,
+                      fontSize: 20.sp,
                     ),
                   ),
-                  const SizedBox(height: 85),
+                  SizedBox(height: 85.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -237,19 +237,19 @@ class _QuotesDetailScreenState extends State<QuotesDetailScreen> {
                         icon: Icon(
                           isLiked ? Icons.favorite : Icons.favorite_outline,
                           color: isLiked ? Colors.red : Colors.white,
-                          size: 40,
+                          size: 40.sp,
                         ),
                       ),
-                      SizedBox(width: 20),
+                      SizedBox(width: 20.w),
                       IconButton(
                         onPressed: () {
                           SharePlus.instance.share(
                             ShareParams(
                               text: '"$quoteText"\n- $author',
-                            ),
+                            )
                           );
                         },
-                        icon: Icon(Icons.share_outlined, size: 40),
+                        icon: Icon(Icons.share_outlined, size: 40.sp),
                       ),
                     ],
                   )
