@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/route_config/route_names.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -10,32 +9,32 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 24.sp),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 24),
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
           'Profile',
-          style: TextStyle(color: Colors.white, fontSize: 26.sp),
+          style: TextStyle(color: Colors.white, fontSize: 26),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.w),
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.all(20.w),
+              padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Colors.grey[900],
-                borderRadius: BorderRadius.circular(12.r),
+                borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
                 children: [
                   CircleAvatar(
-                    radius: 30.r,
+                    radius: 30,
                     backgroundImage: AssetImage('assets/images/profile.jpg'),
                   ),
-                  SizedBox(width: 16.w),
+                  SizedBox(width: 16),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -43,7 +42,7 @@ class ProfileScreen extends StatelessWidget {
                         'Arpeet Neupane',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20.sp,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -51,7 +50,7 @@ class ProfileScreen extends StatelessWidget {
                         'neupanearpeet@gmail.com',
                         style: TextStyle(
                           color: Colors.grey[400],
-                          fontSize: 14.sp,
+                          fontSize: 14,
                         ),
                       ),
                     ],
@@ -60,80 +59,80 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 35.h),
+            SizedBox(height: 35),
 
             Text(
               'MAKE IT YOURS',
               style: TextStyle(
                 color: Colors.grey[400],
-                fontSize: 20.sp,
+                fontSize: 20,
                 fontWeight: FontWeight.w500,
               ),
             ),
 
-            SizedBox(height: 16.h),
+            SizedBox(height: 16),
 
             Container(
               decoration: BoxDecoration(
                 color: Colors.grey[900],
-                borderRadius: BorderRadius.circular(12.r),
+                borderRadius: BorderRadius.circular(12),
               ),
               child: ListTile(
-                leading: Icon(Icons.article, color: Colors.white, size: 24.sp),
+                leading: Icon(Icons.article, color: Colors.white, size: 24),
                 title: Text(
                   'Content preferences',
-                  style: TextStyle(color: Colors.white, fontSize: 19.sp),
+                  style: TextStyle(color: Colors.white, fontSize: 19),
                 ),
-                trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16.sp),
+                trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
               ),
             ),
 
-            SizedBox(height: 35.h),
+            SizedBox(height: 35),
 
             Text(
               'ACCOUNT',
               style: TextStyle(
                 color: Colors.grey[400],
-                fontSize: 20.sp,
+                fontSize: 20,
                 fontWeight: FontWeight.w500,
               ),
             ),
 
-            SizedBox(height: 16.h),
+            SizedBox(height: 16),
 
             Container(
               decoration: BoxDecoration(
                 color: Colors.grey[900],
-                borderRadius: BorderRadius.circular(12.r),
+                borderRadius: BorderRadius.circular(12),
               ),
               child: ListTile(
-                leading: Icon(Icons.edit_outlined, color: Colors.white, size: 24.sp),
+                leading: Icon(Icons.edit_outlined, color: Colors.white, size: 24),
                 title: Text(
                   'Theme',
-                  style: TextStyle(color: Colors.white, fontSize: 19.sp),
+                  style: TextStyle(color: Colors.white, fontSize: 19),
                 ),
-                trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16.sp),
+                trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
               ),
             ),
 
-            SizedBox(height: 15.h),
+            SizedBox(height: 15),
 
             Container(
               decoration: BoxDecoration(
                 color: Colors.grey[900],
-                borderRadius: BorderRadius.circular(12.r),
+                borderRadius: BorderRadius.circular(12),
               ),
               child: ListTile(
-                leading: Icon(Icons.more_horiz, color: Colors.white, size: 24.sp),
+                leading: Icon(Icons.more_horiz, color: Colors.white, size: 24),
                 title: Text(
                   'Forgot Password',
-                  style: TextStyle(color: Colors.white, fontSize: 19.sp),
+                  style: TextStyle(color: Colors.white, fontSize: 19),
                 ),
-                trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16.sp),
+                trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
               ),
             ),
 
-            SizedBox(height: 15.h),
+            SizedBox(height: 15),
 
             GestureDetector(
               onTap: () {
@@ -145,15 +144,15 @@ class ProfileScreen extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(12.r),
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: ListTile(
-                  leading: Icon(Icons.logout, color: Colors.white, size: 24.sp),
+                  leading: Icon(Icons.logout, color: Colors.white, size: 24),
                   title: Text(
                     'Logout',
-                    style: TextStyle(color: Colors.white, fontSize: 19.sp),
+                    style: TextStyle(color: Colors.white, fontSize: 19),
                   ),
-                  trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16.sp),
+                  trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
                 ),
               ),
             ),

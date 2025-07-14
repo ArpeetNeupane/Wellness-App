@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wellness/core/route_config/route_names.dart';
 
 class UserInterestsScreen extends StatefulWidget {
@@ -31,24 +30,24 @@ class _UserInterestsScreenState extends State<UserInterestsScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(10.w),
+          padding: EdgeInsets.all(10),
           child: Column(
             children: [
-              SizedBox(height: 60.h),
+              SizedBox(height: 60),
               Text(
                 'Select all topics that\nmotivates you.',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 35.sp,
+                  fontSize: 35,
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(height: 50.h),
+              SizedBox(height: 50),
               SizedBox(
                 child: GridView.count(
                   crossAxisCount: 2, // 2 columns per row
-                  mainAxisSpacing: 16.h, // vertical spacing between rows
-                  crossAxisSpacing: 16.w, // horizontal spacing between columns
+                  mainAxisSpacing: 16, // vertical spacing between rows
+                  crossAxisSpacing: 16, // horizontal spacing between columns
                   childAspectRatio: 3, // width to height ratio of each button
                   shrinkWrap: true, // grid takes only needed vertical space
                   physics: const NeverScrollableScrollPhysics(), // disable scroll inside column
@@ -60,25 +59,25 @@ class _UserInterestsScreenState extends State<UserInterestsScreen> {
                         backgroundColor: isSelected ? Colors.white : Colors.grey[900],
                         foregroundColor: isSelected ? Colors.black : Colors.white70,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12.r),
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                        padding: EdgeInsets.symmetric(vertical: 20.h), // padding inside buttons
+                        padding: EdgeInsets.symmetric(vertical: 20), // padding inside buttons
                       ),
                       child: Text(
                         interest,
-                        style: TextStyle(fontSize: 20.sp),
+                        style: TextStyle(fontSize: 20),
                       ),
                     );
                   }).toList(),
                 ),
               ),
-              SizedBox(height: 60.h),
+              SizedBox(height: 60),
               SizedBox(
-                width: 200.w,
+                width: 200,
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20.r),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   child: TextButton(
                     onPressed: () {
@@ -91,7 +90,7 @@ class _UserInterestsScreenState extends State<UserInterestsScreen> {
                       'Continue',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 17.sp,
+                        fontSize: 17,
                       ),
                     ),
                   ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wellness/core/route_config/route_names.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -29,26 +28,26 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView( //to prevent overflow when keyboard pops up during typing
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Form(
             key: _formKey,
             child: Column(
               children: [
-                SizedBox(height: 120.h),
+                const SizedBox(height: 120),
                 Center(
                   child: Text(
                     'Welcome back!',
                     style: TextStyle(
-                      fontSize: 30.sp,
+                      fontSize: 30,
                       fontWeight: FontWeight.w600,
                       color: Colors.white
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
-                SizedBox(height: 60.h),
+                const SizedBox(height: 60),
                 SizedBox(
-                  width: 380.w,
+                  width: 380,
                   child: TextFormField(
                     controller: _emailController,
                     validator: (value) {
@@ -62,14 +61,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     decoration: InputDecoration(
                       hintText: 'Enter your email.',
-                      prefixIcon: Icon(Icons.email, size: 24.sp),
-                      contentPadding: EdgeInsets.symmetric(vertical: 17.h)
+                      prefixIcon: Icon(Icons.email, size: 24),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 17)
                     ),
                   ),
                 ),
-                SizedBox(height: 20.h),
+                const SizedBox(height: 20),
                 SizedBox(
-                  width: 380.w,
+                  width: 380,
                   child: TextFormField(
                     controller: _passwordController,
                     obscureText: !_passwordVisibility,
@@ -81,11 +80,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     decoration: InputDecoration(
                       hintText: 'Enter your password.',
-                      prefixIcon: Icon(Icons.lock, size: 24.sp),
+                      prefixIcon: Icon(Icons.lock, size: 24),
                       suffixIcon: IconButton(
                         icon: Icon(
                           _passwordVisibility ? Icons.visibility : Icons.visibility_off,
-                          size: 24.sp,
+                          size: 24,
                           color: Colors.white,
                         ),
                         onPressed: () {
@@ -94,11 +93,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           });
                         },
                       ),
-                      contentPadding: EdgeInsets.symmetric(vertical: 17.h)
+                      contentPadding: const EdgeInsets.symmetric(vertical: 17)
                     ),
                   ),
                 ),
-                SizedBox(height: 5.h),
+                const SizedBox(height: 5),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -121,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         Text(
                           'Remember me',
-                          style: TextStyle(fontSize: 14.sp),
+                          style: TextStyle(fontSize: 14),
                         ),
                       ],
                     ),
@@ -131,18 +130,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       child: Text(
                         'Forgot Password?',
-                        style: TextStyle(color: Colors.white, fontSize: 14.sp),
+                        style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 30.h),
+                const SizedBox(height: 30),
                 SizedBox(
-                  width: 380.w,
+                  width: 380,
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20.r)
+                      borderRadius: BorderRadius.circular(20)
                     ),
                     child: TextButton(
                       onPressed: () async {
@@ -160,44 +159,44 @@ class _LoginScreenState extends State<LoginScreen> {
                         'Login',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 17.sp,
+                          fontSize: 17,
                         ),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 22.h),
+                const SizedBox(height: 22),
                 Row(
                   children: [
                     Expanded(
                       child: Divider(
                         color: Colors.grey,
                         thickness: 1,
-                        indent: 17.w, //spacing before line
-                        endIndent: 10.w, //spacing after line
+                        indent: 17, //spacing before line
+                        endIndent: 10, //spacing after line
                       ),
                     ),
                     Text(
                       'Or',
-                      style: TextStyle(fontSize: 14.sp),
+                      style: TextStyle(fontSize: 14),
                     ),
                     Expanded(
                       child: Divider(
                         color: Colors.grey,
                         thickness: 1,
-                        indent: 10.w,
-                        endIndent: 17.w,
+                        indent: 10,
+                        endIndent: 17,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 22.h),
+                const SizedBox(height: 22),
                 SizedBox(
-                  width: 380.w,
+                  width: 380,
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20.r)
+                      borderRadius: BorderRadius.circular(20)
                     ),
                     child: TextButton(
                       onPressed: () {
@@ -206,13 +205,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.g_translate, color: Colors.black, size: 24.sp),
-                          SizedBox(width: 5.w),
+                          Icon(Icons.g_translate, color: Colors.black, size: 24),
+                          const SizedBox(width: 5),
                           Text(
                             'Google',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 17.sp,
+                              fontSize: 17,
                             ),
                           ),
                         ],
@@ -220,15 +219,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 40.h),
+                const SizedBox(height: 40),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       "Don't have an account?",
-                      style: TextStyle(fontSize: 14.sp),
+                      style: TextStyle(fontSize: 14),
                     ),
-                    SizedBox(width: 5.w),
+                    const SizedBox(width: 5),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushReplacementNamed(
@@ -240,7 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         'Create an account',
                         style: TextStyle(
                           decoration: TextDecoration.underline,
-                          fontSize: 14.sp,
+                          fontSize: 14,
                         ),
                       ),
                     ),

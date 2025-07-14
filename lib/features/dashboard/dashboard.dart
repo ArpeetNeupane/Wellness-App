@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wellness/core/route_config/route_names.dart';
 import '../../profile.dart';
 
@@ -15,13 +14,13 @@ class DashboardScreen extends StatelessWidget {
           'Explore',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 25.sp,
+            fontSize: 25,
             fontWeight: FontWeight.w400,
           ),
         ),
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 12.w),
+            padding: EdgeInsets.only(right: 12),
             child: GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -30,7 +29,7 @@ class DashboardScreen extends StatelessWidget {
                 );
               },
               child: CircleAvatar(
-                radius: 22.r,
+                radius: 22,
                 backgroundImage: AssetImage('assets/images/profile.jpg'),
               ),
             ),
@@ -38,20 +37,20 @@ class DashboardScreen extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15.w),
+        padding: EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 23.h),
+            SizedBox(height: 23),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 177.w,
+                  width: 177,
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.grey[900],
-                      borderRadius: BorderRadius.circular(10.r),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextButton(
                       onPressed: () {
@@ -60,13 +59,13 @@ class DashboardScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.favorite_border, color: Colors.white, size: 22.sp),
-                          SizedBox(width: 9.w),
+                          Icon(Icons.favorite_border, color: Colors.white, size: 22),
+                          SizedBox(width: 9),
                           Text(
                             'My favourites',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.sp,
+                              fontSize: 20,
                             ),
                           ),
                         ],
@@ -75,11 +74,11 @@ class DashboardScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 177.w,
+                  width: 177,
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.grey[900],
-                      borderRadius: BorderRadius.circular(10.r),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextButton(
                       onPressed: () {
@@ -88,13 +87,13 @@ class DashboardScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.notifications_outlined, color: Colors.white, size: 22.sp),
-                          SizedBox(width: 9.w),
+                          Icon(Icons.notifications_outlined, color: Colors.white, size: 22),
+                          SizedBox(width: 9),
                           Text(
                             'Remind me',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.sp,
+                              fontSize: 20,
                             ),
                           ),
                         ],
@@ -104,51 +103,51 @@ class DashboardScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 30.h),
+            SizedBox(height: 30),
             Text(
               "Today's Quotes",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 24.sp,
+                fontSize: 24,
               ),
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 20),
             Center(
               child: Container(
-                width: 350.w,
-                height: 100.h,
+                width: 350,
+                height: 100,
                 decoration: BoxDecoration(
                   color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20.r),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: Center(
                   child: Text(
                     '"Your wellness is an investment,\nnot an expense."\n-Rick Riordan',
                     style: TextStyle(
                       fontStyle: FontStyle.italic,
-                      fontSize: 20.sp,
+                      fontSize: 20,
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 30.h),
+            SizedBox(height: 30),
             Text(
               "Quotes",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 24.sp,
+                fontSize: 24,
               ),
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
-              height: 60.h,
+              height: 60,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20.r),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: TextButton(
                   onPressed: () {
@@ -163,31 +162,31 @@ class DashboardScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.wb_sunny_outlined, color: Colors.white, size: 22.sp),
-                          SizedBox(width: 12.w),
+                          Icon(Icons.wb_sunny_outlined, color: Colors.white, size: 22),
+                          SizedBox(width: 12),
                           Text(
                             'Feeling Blessed',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.sp,
+                              fontSize: 20,
                             ),
                           ),
                         ],
                       ),
-                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18.sp),
+                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18),
                     ],
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 15.h),
+            SizedBox(height: 15),
             SizedBox(
               width: double.infinity,
-              height: 60.h,
+              height: 60,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20.r),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: TextButton(
                   onPressed: () {
@@ -202,31 +201,31 @@ class DashboardScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.favorite_outline, color: Colors.white, size: 22.sp),
-                          SizedBox(width: 12.w),
+                          Icon(Icons.favorite_outline, color: Colors.white, size: 22),
+                          SizedBox(width: 12),
                           Text(
                             'Pride Month',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.sp,
+                              fontSize: 20,
                             ),
                           ),
                         ],
                       ),
-                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18.sp),
+                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18),
                     ],
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 15.h),
+            SizedBox(height: 15),
             SizedBox(
               width: double.infinity,
-              height: 60.h,
+              height: 60,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20.r),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: TextButton(
                   onPressed: () {
@@ -241,31 +240,31 @@ class DashboardScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.star_border, color: Colors.white, size: 22.sp),
-                          SizedBox(width: 12.w),
+                          Icon(Icons.star_border, color: Colors.white, size: 22),
+                          SizedBox(width: 12),
                           Text(
                             'Self-worth',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.sp,
+                              fontSize: 20,
                             ),
                           ),
                         ],
                       ),
-                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18.sp),
+                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18),
                     ],
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 15.h),
+            SizedBox(height: 15),
             SizedBox(
               width: double.infinity,
-              height: 60.h,
+              height: 60,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20.r),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: TextButton(
                   onPressed: () {
@@ -280,39 +279,39 @@ class DashboardScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.favorite, color: Colors.white, size: 22.sp),
-                          SizedBox(width: 12.w),
+                          Icon(Icons.favorite, color: Colors.white, size: 22),
+                          SizedBox(width: 12),
                           Text(
                             'Love',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.sp,
+                              fontSize: 20,
                             ),
                           ),
                         ],
                       ),
-                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18.sp),
+                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18),
                     ],
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 30.h),
+            SizedBox(height: 30),
             Text(
               "Health Tips",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 24.sp,
+                fontSize: 24,
               ),
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
-              height: 60.h,
+              height: 60,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20.r),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: TextButton(
                   onPressed: () {
@@ -323,18 +322,18 @@ class DashboardScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.wb_sunny_outlined, color: Colors.white, size: 22.sp),
-                          SizedBox(width: 12.w),
+                          Icon(Icons.wb_sunny_outlined, color: Colors.white, size: 22),
+                          SizedBox(width: 12),
                           Text(
                             'Breathe to reset',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.sp,
+                              fontSize: 20,
                             ),
                           ),
                         ],
                       ),
-                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18.sp),
+                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18),
                     ],
                   ),
                 ),

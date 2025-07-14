@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:lottie/lottie.dart';
@@ -127,22 +126,22 @@ class _QuotesDetailScreenState extends State<QuotesDetailScreen> {
         title: Text(
           widget.category,
           style: TextStyle(
-            fontSize: 23.sp,
+            fontSize: 23,
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, size: 24.sp),
+          icon: Icon(Icons.arrow_back_ios, size: 24),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 16.w),
+            padding: EdgeInsets.only(right: 16),
             child: Center(
               child: Text(
                 '${currentPage + 1}/${quotes[widget.category]?.length ?? 0}',
-                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
           )
@@ -165,7 +164,7 @@ class _QuotesDetailScreenState extends State<QuotesDetailScreen> {
             final isLiked = likedQuotes.contains(quoteText);
 
             return Padding(
-              padding: EdgeInsets.only(right: 20.w, left: 20.w, top: 10.h),
+              padding: EdgeInsets.only(right: 20, left: 20, top: 10),
               child: Column(
                 children: [
                   Align(
@@ -173,13 +172,13 @@ class _QuotesDetailScreenState extends State<QuotesDetailScreen> {
                     child: Container(
                       decoration: BoxDecoration(
                         border: Border.all(color: Color.fromRGBO(79, 77, 77, 0.737)),
-                        borderRadius: BorderRadius.circular(30.r),
+                        borderRadius: BorderRadius.circular(30),
                       ),
                       child: IconButton(
                         onPressed: () async {
                           await flutterTts.speak('$quoteText by $author');
                         },
-                        icon: Icon(Icons.volume_up, size: 25.sp),
+                        icon: Icon(Icons.volume_up, size: 25),
                       ),
                     ),
                   ),
@@ -192,15 +191,15 @@ class _QuotesDetailScreenState extends State<QuotesDetailScreen> {
                             '"${quote['quote']}"',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 24.sp,
+                              fontSize: 24,
                               fontStyle: FontStyle.italic,
                             ),
                           ),
-                          SizedBox(height: 20.h),
+                          SizedBox(height: 20),
                           Text(
                             '- ${quote['author']}',
                             style: TextStyle(
-                              fontSize: 18.sp,
+                              fontSize: 18,
                               color: Colors.grey[700],
                             ),
                           ),
@@ -209,18 +208,18 @@ class _QuotesDetailScreenState extends State<QuotesDetailScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 100.h,
-                    width: 130.w,
+                    height: 100,
+                    width: 130,
                     child: Lottie.asset('assets/animations/scroll_up_hand.json'),
                   ),
                   Text(
                     'Swipe up',
                     style: TextStyle(
                       color: Colors.grey,
-                      fontSize: 20.sp,
+                      fontSize: 20,
                     ),
                   ),
-                  SizedBox(height: 85.h),
+                  SizedBox(height: 85),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -237,10 +236,10 @@ class _QuotesDetailScreenState extends State<QuotesDetailScreen> {
                         icon: Icon(
                           isLiked ? Icons.favorite : Icons.favorite_outline,
                           color: isLiked ? Colors.red : Colors.white,
-                          size: 40.sp,
+                          size: 40,
                         ),
                       ),
-                      SizedBox(width: 20.w),
+                      SizedBox(width: 20),
                       IconButton(
                         onPressed: () {
                           SharePlus.instance.share(
@@ -249,7 +248,7 @@ class _QuotesDetailScreenState extends State<QuotesDetailScreen> {
                             )
                           );
                         },
-                        icon: Icon(Icons.share_outlined, size: 40.sp),
+                        icon: Icon(Icons.share_outlined, size: 40),
                       ),
                     ],
                   )
