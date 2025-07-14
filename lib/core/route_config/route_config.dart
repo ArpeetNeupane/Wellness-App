@@ -1,7 +1,12 @@
 //euta route name call garyo vane kata lera jane vanera define garine file
 
 import 'package:flutter/material.dart';
+import 'package:wellness/add_category.dart';
+import 'package:wellness/add_health_tips.dart';
+import 'package:wellness/add_quotes.dart';
 import 'package:wellness/core/route_config/route_names.dart';
+import 'package:wellness/features/auth/change_password.dart';
+import 'package:wellness/features/auth/forgot_password.dart';
 import 'package:wellness/features/auth/login_screen.dart';
 import 'package:wellness/features/auth/signup_screen.dart';
 import 'package:wellness/features/dashboard/dashboard.dart';
@@ -32,6 +37,26 @@ class RouteConfig {
       case AuthRouteName.signupScreen:
         return MaterialPageRoute(
           builder: (_) => const SignUpScreen(),
+        );
+      case AuthRouteName.forgotPasswordScreen:
+        return MaterialPageRoute(
+          builder: (_) => const ForgotPasswordScreen(),
+        );
+      case AuthRouteName.changePassword:
+        return MaterialPageRoute(
+          builder: (_) => const ChangePasswordScreen(),
+        );
+      case RoutesName.addCategoryScreen:
+        return MaterialPageRoute(
+          builder: (_) => const AddCategoryScreen(),
+        );
+      case RoutesName.addQuotesScreen:
+        return MaterialPageRoute(
+          builder: (_) => const AddQuotesScreen(),
+        );
+      case RoutesName.addHealthTipsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const AddHealthTipsScreen(),
         );
       case RoutesName.profileScreen:
         return MaterialPageRoute(

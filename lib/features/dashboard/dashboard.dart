@@ -119,7 +119,10 @@ class DashboardScreen extends StatelessWidget {
                           ),
                           child: IconButton(
                             onPressed: () {
-                              //...
+                              Navigator.pushNamed(
+                                context,
+                                RoutesName.addCategoryScreen
+                              );
                             },
                             icon: Icon(Icons.add)
                           ),
@@ -178,7 +181,10 @@ class DashboardScreen extends StatelessWidget {
                           ),
                           child: IconButton(
                             onPressed: () {
-                              //...
+                              Navigator.pushNamed(
+                                context,
+                                RoutesName.addQuotesScreen
+                              );
                             },
                             icon: Icon(Icons.add)
                           ),
@@ -237,7 +243,10 @@ class DashboardScreen extends StatelessWidget {
                           ),
                           child: IconButton(
                             onPressed: () {
-                              //...
+                              Navigator.pushNamed(
+                                context,
+                                RoutesName.addHealthTipsScreen
+                              );
                             },
                             icon: Icon(Icons.add)
                           ),
