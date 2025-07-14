@@ -136,7 +136,7 @@ class ProfileScreen extends StatelessWidget {
 
             GestureDetector(
               onTap: () {
-                Navigator.pushReplacementNamed(
+                Navigator.pushNamed(
                   context,
                   AuthRouteName.loginScreen,
                 );

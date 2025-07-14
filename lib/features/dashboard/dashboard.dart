@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wellness/core/route_config/route_names.dart';
-import '../../profile.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -11,7 +10,7 @@ class DashboardScreen extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false, //hiding back arrow
         title: Text(
-          'Explore',
+          'Dashboard',
           style: TextStyle(
             color: Colors.white,
             fontSize: 25,
@@ -23,9 +22,9 @@ class DashboardScreen extends StatelessWidget {
             padding: EdgeInsets.only(right: 12),
             child: GestureDetector(
               onTap: () {
-                Navigator.push(
+                Navigator.pushNamed(
                   context,
-                  MaterialPageRoute(builder: (context) => ProfileScreen()),
+                  RoutesName.profileScreen,
                 );
               },
               child: CircleAvatar(
@@ -41,301 +40,218 @@ class DashboardScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 23),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  width: 177,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[900],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        //
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.favorite_border, color: Colors.white, size: 22),
-                          SizedBox(width: 9),
-                          Text(
-                            'My favourites',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 177,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[900],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        //
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.notifications_outlined, color: Colors.white, size: 22),
-                          SizedBox(width: 9),
-                          Text(
-                            'Remind me',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
             SizedBox(height: 30),
-            Text(
-              "Today's Quotes",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[850],
+                borderRadius: BorderRadius.circular(20),
               ),
-            ),
-            SizedBox(height: 20),
-            Center(
-              child: Container(
-                width: 350,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Center(
-                  child: Text(
-                    '"Your wellness is an investment,\nnot an expense."\n-Rick Riordan',
-                    style: TextStyle(
-                      fontStyle: FontStyle.italic,
-                      fontSize: 20,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+              height: 150,
+              child: Padding(
+                padding: EdgeInsets.all(30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(Icons.group_outlined, color: const Color.fromARGB(255, 255, 255, 255), size: 65),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          'Total Users',
+                          style: TextStyle(
+                            color: Colors.grey[400],
+                            fontSize: 23
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          '156',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 33,
+                            fontWeight: FontWeight.bold
+                          ),
+                        )
+                      ],
+                    )
+                  ],
                 ),
               ),
             ),
             SizedBox(height: 30),
-            Text(
-              "Quotes",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[850],
+                borderRadius: BorderRadius.circular(15),
               ),
-            ),
-            SizedBox(height: 20),
-            SizedBox(
-              width: double.infinity,
-              height: 60,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      RoutesName.quotesDetailScreen,
-                      arguments: 'Feeling Blessed',
-                    );
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(Icons.wb_sunny_outlined, color: Colors.white, size: 22),
-                          SizedBox(width: 12),
-                          Text(
-                            'Feeling Blessed',
+              height: 132,
+              child: Padding(
+                padding: EdgeInsets.all(30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                            'Total Category',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20,
+                              fontSize: 18
                             ),
                           ),
-                        ],
-                      ),
-                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 15),
-            SizedBox(
-              width: double.infinity,
-              height: 60,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      RoutesName.quotesDetailScreen,
-                      arguments: 'Pride Month',
-                    );
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(Icons.favorite_outline, color: Colors.white, size: 22),
-                          SizedBox(width: 12),
+                          SizedBox(height: 10),
                           Text(
-                            'Pride Month',
+                            '100',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20,
+                              fontSize: 33,
+                              fontWeight: FontWeight.bold
                             ),
+                          )
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50)
                           ),
-                        ],
-                      ),
-                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 15),
-            SizedBox(
-              width: double.infinity,
-              height: 60,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      RoutesName.quotesDetailScreen,
-                      arguments: 'Self-worth',
-                    );
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(Icons.star_border, color: Colors.white, size: 22),
-                          SizedBox(width: 12),
-                          Text(
-                            'Self-worth',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
+                          child: IconButton(
+                            onPressed: () {
+                              //...
+                            },
+                            icon: Icon(Icons.add)
                           ),
-                        ],
-                      ),
-                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 15),
-            SizedBox(
-              width: double.infinity,
-              height: 60,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      RoutesName.quotesDetailScreen,
-                      arguments: 'Love',
-                    );
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(Icons.favorite, color: Colors.white, size: 22),
-                          SizedBox(width: 12),
-                          Text(
-                            'Love',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
+                        ),
+                        Text(
+                          'Add new',
+                          style: TextStyle(
+                            color: Colors.grey[400],
+                            fontSize: 15
                           ),
-                        ],
-                      ),
-                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18),
-                    ],
-                  ),
+                        )
+                      ]
+                    )
+                  ],
                 ),
               ),
             ),
             SizedBox(height: 30),
-            Text(
-              "Health Tips",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[850],
+                borderRadius: BorderRadius.circular(15),
               ),
-            ),
-            SizedBox(height: 20),
-            SizedBox(
-              width: double.infinity,
-              height: 60,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    //
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(Icons.wb_sunny_outlined, color: Colors.white, size: 22),
-                          SizedBox(width: 12),
-                          Text(
-                            'Breathe to reset',
+              height: 132,
+              child: Padding(
+                padding: EdgeInsets.all(30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                            'Total Quotes',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20,
+                              fontSize: 18
                             ),
                           ),
-                        ],
-                      ),
-                      Icon(Icons.arrow_forward_ios, color: Colors.white, size: 18),
-                    ],
-                  ),
+                          SizedBox(height: 10),
+                          Text(
+                            '200',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 33,
+                              fontWeight: FontWeight.bold
+                            ),
+                          )
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50)
+                          ),
+                          child: IconButton(
+                            onPressed: () {
+                              //...
+                            },
+                            icon: Icon(Icons.add)
+                          ),
+                        ),
+                        Text(
+                          'Add new',
+                          style: TextStyle(
+                            color: Colors.grey[400],
+                            fontSize: 15
+                          ),
+                        )
+                      ]
+                    )
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 30),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[850],
+                borderRadius: BorderRadius.circular(15),
+              ),
+              height: 132,
+              child: Padding(
+                padding: EdgeInsets.all(30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                            'Total Health Tips',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            '50',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 33,
+                              fontWeight: FontWeight.bold
+                            ),
+                          )
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50)
+                          ),
+                          child: IconButton(
+                            onPressed: () {
+                              //...
+                            },
+                            icon: Icon(Icons.add)
+                          ),
+                        ),
+                        Text(
+                          'Add new',
+                          style: TextStyle(
+                            color: Colors.grey[400],
+                            fontSize: 15
+                          ),
+                        )
+                      ]
+                    )
+                  ],
                 ),
               ),
             ),
