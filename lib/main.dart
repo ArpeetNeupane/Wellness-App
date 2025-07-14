@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:wellness/core/route_config/route_config.dart';
 import 'package:wellness/core/route_config/route_names.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 Set<String> likedQuotes = {};
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const WellnessApp());
 }
 

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:wellness/core/route_config/route_names.dart';
 
@@ -10,17 +11,17 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
   bool _passwordVisibility = false;
   bool _rememberMe = false;
 
   @override
   void dispose() {
-    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -47,24 +48,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 const SizedBox(height: 50),
-                SizedBox(
-                  width: 380,
-                  child: TextFormField(
-                    controller: _nameController,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Full name is required.';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                      hintText: 'Enter your full name.',
-                      prefixIcon: Icon(Icons.person, size: 24),
-                      contentPadding: const EdgeInsets.symmetric(vertical: 17)
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
                 SizedBox(
                   width: 380,
                   child: TextFormField(
@@ -95,6 +78,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       if (value == null || value.isEmpty) {
                         return 'Password is required.';
                       }
+                      if (value.length < 8) {
+                        return 'Password must be at least 8 characters.';
+                      }
                       return null;
                     },
                     decoration: InputDecoration(
@@ -113,6 +99,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         },
                       ),
                       contentPadding: const EdgeInsets.symmetric(vertical: 17)
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                SizedBox(
+                  width: 380,
+                  child: TextFormField(
+                    controller: _confirmPasswordController,
+                    obscureText: !_passwordVisibility,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please confirm your password.';
+                      }
+                      if (value != _passwordController.text) {
+                        return 'Passwords do not match.';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      hintText: 'Confirm your password.',
+                      prefixIcon: Icon(Icons.lock, size: 24),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 17),
                     ),
                   ),
                 ),
@@ -160,9 +168,35 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         await Future.delayed(const Duration(milliseconds: 200)); //waiting for keyboard to fully dismiss
                         
                         if (_formKey.currentState!.validate()) {
-                          if (!mounted) return; //checking if widget is still mounted
-                          if (!context.mounted) return; //checking if context is still valid; IMPORTANT
-                          Navigator.of(context).pushNamed(RoutesName.userInterestsScreen);
+                          try {
+                            final credential = await FirebaseAuth.instance
+                                .createUserWithEmailAndPassword(
+                              email: _emailController.text.trim(),
+                              password: _passwordController.text,
+                            );
+
+                            if (!context.mounted) return;
+                            
+                            //navigating on success
+                            Navigator.of(context).pushNamed(RoutesName.userInterestsScreen);
+                          } on FirebaseAuthException catch (e) {
+                            String errorMessage;
+                            if (e.code == 'email-already-in-use') {
+                              errorMessage = 'This email is already in use.';
+                            } else if (e.code == 'invalid-email') {
+                              errorMessage = 'The email address is not valid.';
+                            } else if (e.code == 'weak-password') {
+                              errorMessage = 'The password is too weak.';
+                            } else {
+                              errorMessage = 'Registration failed. Try again.';
+                            }
+                            
+                            if (!context.mounted) return;
+                            //showing error using SnackBar or Dialog
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(errorMessage)),
+                            );
+                          }
                         }
                       },
                       child: Text(

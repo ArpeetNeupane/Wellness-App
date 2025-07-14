@@ -117,6 +117,28 @@ class ProfileScreen extends StatelessWidget {
 
             SizedBox(height: 15),
 
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, AuthRouteName.changePassword);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey[900],
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: ListTile(
+                  leading: Icon(Icons.lens_blur_outlined, color: Colors.white, size: 24),
+                  title: Text(
+                    'Change Password',
+                    style: TextStyle(color: Colors.white, fontSize: 19),
+                  ),
+                  trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 15),
+
             Container(
               decoration: BoxDecoration(
                 color: Colors.grey[900],
