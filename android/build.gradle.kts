@@ -1,4 +1,14 @@
-plugins{
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0")
+    }
+}
+
+plugins {
     id("com.google.gms.google-services") version "4.4.3" apply false
 }
 
