@@ -169,12 +169,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         
                         if (_formKey.currentState!.validate()) {
                           try {
-                            final credential = await FirebaseAuth.instance
-                                .createUserWithEmailAndPassword(
-                              email: _emailController.text.trim(),
-                              password: _passwordController.text,
+                            final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                                email: _emailController.text.trim(),
+                                password: _passwordController.text,
                             );
-
+                            
                             if (!context.mounted) return;
                             
                             //navigating on success
@@ -244,7 +243,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     child: TextButton(
                       onPressed: () {
-                        //logic for handling google login logic
+                        //
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
